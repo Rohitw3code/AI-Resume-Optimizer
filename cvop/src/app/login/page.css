@@ -1,0 +1,101 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('../../assests/home.jpg'); 
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+
+.login-container {
+      padding: 20px;
+      width: 100%;
+      margin-top: 100px;
+      display: flex;
+      justify-content: center;
+  }
+
+  .login-box {
+      width:300px;
+      padding: 10px;
+      float: right;
+      background-color: whitesmoke;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border-radius: 10px;
+  }
+
+  .login-title {
+      text-align: center;
+      color: black;
+      font-weight: 700;
+      font-size: 20px;
+      margin-bottom: 20px;
+  }
+
+  .input-group {
+      position: relative;
+      margin-bottom: 20px;
+      margin-block: 30px;
+  }
+
+  .input-group input {
+      width: 100%;
+      padding: 10px 10px 10px 0;
+      font-size: 1rem;
+      border: none;
+      border-bottom: 2px solid #aaa;
+      background: transparent;
+      outline: none;
+      transition: 0.2s ease;
+  }
+
+  .input-group label {
+      position: absolute;
+      top: 10px;
+      left: 0;
+      font-size: 1rem;
+      color: #aaa;
+      pointer-events: none;
+      transition: 0.2s ease;
+  }
+
+  .input-group input:focus~label,
+  .input-group input:valid~label {
+      top: -20px;
+      left: 0;
+      font-size: 1rem;
+      color: #007BFF;
+  }
+
+  .input-group input:focus,
+  .input-group input:valid {
+      border-bottom: 2px solid #007BFF;
+  }
+
+  .btn-group {
+      display: flex;
+      justify-content: center;
+  }
+
+  .create-account-btn {
+      padding: 10px 20px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      color: #fff;
+      background-color: #007BFF;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+  }
+
+  .create-account-btn:hover {
+      background-color: #0056b3;
+      transform: translateY(-2px);
+  }
+
+  .create-account-btn:active {
+      background-color: #004494;
+      transform: translateY(2px);
+  }

@@ -1,0 +1,45 @@
+.nav {
+    position: sticky;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2); /* Adjust color and opacity */
+    backdrop-filter: blur(2px); /* Blur effect */
+    -webkit-backdrop-filter: blur(2px); /* Blur effect for Safari */
+    box-shadow: 0 4px 6px rgba(11, 79, 188, 0.1); /* Optional: add shadow */
+}
+
+
+.nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 60px; /* Adjust height as needed */
+}
+
+.nav li {
+    display: inline;
+    cursor: pointer;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #fff; /* Text color */
+    font-weight: bold;
+    padding: 10px 20px;
+    display: block;
+}
+
+.nav a:hover {
+    background: rgba(120, 188, 225, 0.3); /* Hover effect */
+    border-radius: 5px;
+}
+
+.nav-name{
+    font-size: 20px;
+}
+
+li{
+    margin-inline: 5px;
+}
