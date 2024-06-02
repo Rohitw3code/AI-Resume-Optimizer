@@ -2,6 +2,7 @@ import pymongo
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from bson import json_util
+from run_ import generate_resume
 
 
 app = Flask(__name__)
@@ -12,6 +13,16 @@ client = pymongo.MongoClient("mongodb+srv://beluga0:rohit*123@flatme-cluster.zpn
 db = client["cvop"]
 collection = db["users"]
 
+
+@app.route('/create-resume',methods=['POST','GET'])
+def create_resume():
+    data = request.get_json()
+    desc = data['job_desc']
+    data = collection.find_one({'email':'rohitcode005@gmail.com'})
+
+    generate_resume(data)
+
+    return jsonify({'success':True})
 
 @app.route('/get-details',methods=['POST','GET'])
 def get_details():
