@@ -1,0 +1,51 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\usepackage{enumitem}
+
+\definecolor{darkblue}{RGB}{0,0,139}
+\definecolor{darkgreen}{RGB}{0,100,0}
+
+\begin{document}
+
+\section*{\textcolor{darkblue}{Name:} John Doe}
+\section*{\textcolor{darkblue}{Age:} 25}
+
+\section*{\textcolor{darkblue}{Education:}}
+\begin{itemize}[label=-, leftmargin=0.5cm]
+    \item \textcolor{darkgreen}{Degree:} Bachelor's
+    \item \textcolor{darkgreen}{Major:} Computer Science
+\end{itemize}
+
+\section*{\textcolor{darkblue}{Skills:}}
+Python, Java, SQL
+
+\section*{\textcolor{darkblue}{Experience:}}
+\begin{enumerate}[label=\textbf{\arabic*.}, leftmargin=0.5cm]
+    \item \textbf{Position:} Software Engineer
+    \begin{itemize}[label=-, leftmargin=0.5cm]
+        \item \textcolor{darkgreen}{Company:} Tech Co.
+        \item \textcolor{darkgreen}{Years:} 3
+    \end{itemize}
+    \item \textbf{Position:} Data Analyst
+    \begin{itemize}[label=-, leftmargin=0.5cm]
+        \item \textcolor{darkgreen}{Company:} Data Corp.
+        \item \textcolor{darkgreen}{Years:} 2
+    \end{itemize}
+\end{enumerate}
+
+\section*{\textcolor{darkblue}{Academic Data:}}
+\begin{itemize}[label=-, leftmargin=0.5cm]
+    \item \textcolor{darkgreen}{College:} Sarala Birla University
+    \item \textcolor{darkgreen}{Degree:} B.Tech AI
+    \item \textcolor{darkgreen}{Duration:} 2024-06-12 to 2024-06-19
+    \item \textcolor{darkgreen}{CGPA:} 7.56
+\end{itemize}
+
+\section*{\textcolor{darkblue}{Social Data:}}
+\begin{itemize}[label=-, leftmargin=0.5cm]
+    \item \textcolor{darkgreen}{Programming Languages:} Python, C, Java, JavaScript
+    \item \textcolor{darkgreen}{Other Skills:} Problem Solving, Communication
+\end{itemize}
+
+\end{document}

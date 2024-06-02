@@ -20,9 +20,9 @@ def create_resume():
     desc = data['job_desc']
     data = collection.find_one({'email':'rohitcode005@gmail.com'})
 
-    generate_resume(data)
-
-    return jsonify({'success':True})
+    res = generate_resume(data,desc)
+    print('output : ',res)
+    return jsonify({'success':True,'res':res})
 
 @app.route('/get-details',methods=['POST','GET'])
 def get_details():

@@ -8,6 +8,8 @@ import { faBars } from "@fortawesome/free-solid-svg-icons";
 
 export default function CreateResume() {
     const [jobDesc, setJobDesc] = useState(''); // Corrected the order of state variable and setter function
+    const [result,setResult] = useState('');
+
     // Toggle side nav state
     const [sideNavOpen, setSideNavOpen] = useState(false);
     const sideNavRef = useRef(null);
@@ -29,6 +31,7 @@ export default function CreateResume() {
         })
         .then(response => response.json())
         .then(data => {
+            setResult(JSON.stringify(data['res']));
             console.log('Success:', data);
         })
         .catch((error) => {
@@ -75,6 +78,9 @@ export default function CreateResume() {
                         value={jobDesc}
                     />
                     <button className='bg-blue-500 r-5 m-5 p-2' onClick={createResume}>Create Resume</button>
+                    <textarea className='text-black p-5 m-5 r-3' value={result} placeholder='result' />
+                </div>
+                <div>
                 </div>
             </div>
         </>

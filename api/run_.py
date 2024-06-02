@@ -1,6 +1,5 @@
-from crewai_tools import ScrapeWebsiteTool,PDFSearchTool,SerperDevTool,FileReadTool
 from crewai import Agent,Task,Crew
-
+import warnings
 from Agents import (researcher_agent,profile_agent,activity_agent,
                     project_agent,work_researcher_agent,
                     latex_format_data_agent,format_agent)
@@ -31,9 +30,22 @@ job_application_crew = Crew(
 )
 
 
-def generate_resume(data):
-    print("Generate Resume : ",data)
-    pass
+def generate_resume(data,job_desc):
+    input_values = {
+        'job_description':job_desc,
+        'personal_details_json':data['personalDetails'],
+        'academicInfo_json':data['academicInfo'],
+        'skills_json':data['skills'],
+        'workExperience_json':data['workExperience'],
+        'projects_json':data['projects'],
+    }
+    print("input_values : ",input_values)
+    print('execution started : ===========================')
+    ### this execution will take a few minutes to run
+    result = job_application_crew.kickoff(inputs=input_values)
+    print('execution end : ===============================')
+
+    return result
 
 
 

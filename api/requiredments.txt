@@ -1,2 +1,4 @@
-pip install crewai[tools]
-pip install crewai
+crewai
+pymongo
+flask
+flask_cors

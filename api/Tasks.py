@@ -1,7 +1,7 @@
 from crewai import Agent,Task,Crew
 from crewai_tools import ScrapeWebsiteTool,PDFSearchTool,SerperDevTool,FileReadTool
 from Agents import (researcher_agent,project_agent
-                    ,activity_agent,work_researcher_agent,
+                    ,activity_agent,profile_agent,work_researcher_agent,
                     format_agent,latex_format_data_agent)
 
 #Task 1
@@ -22,19 +22,19 @@ researcher_task = Task(
 # Task for Profile Agent: Structure User Data
 profile_task = Task(
     description=(
-        "Structure the user's data {education_text} ensuring that their name, college, and degree are included. "
-        "Review the user data {skills_text} and include essential details, prioritizing the most important information."
+        "Structure the user's data in Json {academicInfo_json} conver to plain text ensuring that their name, college, and degree are included. "
+        "Review the user data in json {skills_json} convert it to plain text and include essential details, prioritizing the most important information."
     ),
     expected_output=(
-        "do not add too much details from the link of linkedin and github or anyother if adding the detail can increase the"
-        "the chance job match then only include it"
+        # "do not add too much details from the link of linkedin and github or anyother if adding the detail can increase the"
+        # "the chance job match then only include it"
         "The user's details are well-formatted with minimal line spacing. "
         "Group social links together and place them centrally. "
         "Organize social links and academic data into sections, using underlines to separate sections. "
         "link text with color and make important text bold."
     ),
     context=[researcher_task],
-    agent=researcher_agent,
+    agent=profile_agent,
     async_execution=True
 )
 
@@ -42,7 +42,7 @@ profile_task = Task(
 # Task for Project Manager: Sort and Present Projects
 project_task = Task(
     description=(
-        "Sort the user's projects {project_text} based on their relevance to the job requirements. "
+        "Sort the user's projects which is in Json {projects_json} convert it to plain text and based on their relevance to the job requirements. "
         "Match each project's tech stack and skills with those required by the job, selecting the 3-5 most relevant projects. "
         "Exclude any unrelated projects."
     ),
@@ -64,7 +64,8 @@ project_task = Task(
 # Task for Activity Manager: Sort and Present Activities
 activity_task = Task(
     description=(
-        "Format the activity section {activity_text} using bold and italic text to highlight extracurricular activities. "
+        "if no activity present skip it"
+        "Format the activity section using bold and italic text to highlight extracurricular activities. "
         "Include certificates only if they are relevant to the job. "
         "Sort the activities by their relevance to the job description and remove any unrelated activities. "
         "Relate your skills to the activities and certificates."
@@ -85,7 +86,7 @@ activity_task = Task(
 # Task for Work Manager: Structure and Present Work Experience
 work_task = Task(
     description=(
-        "This is the most important section. Use the job requirements and qualifications to demonstrate how the user's work experience {experience_text}"
+        "This is the most important section. Use the job requirements and qualifications to demonstrate how the user's work experience {workExperience_json}"
         "can effectively contribute to the job role."
     ),
     expected_output=(
@@ -96,8 +97,8 @@ work_task = Task(
         "Add skills and projects the user worked on after the short description of the work at the company. "
         "All details should be clearly mentioned and prioritized based on relevance to the current job and company type."
     ),
-    context=[work_researcher_agent],
-    agent=researcher_agent,
+    context=[researcher_task],
+    agent=work_researcher_agent,
     async_execution=True
 )
 

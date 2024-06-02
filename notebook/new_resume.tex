@@ -1,76 +1,48 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
-\usepackage{xcolor}
-\usepackage{enumitem}
 \usepackage{hyperref}
-\usepackage{geometry}
-
-\definecolor{linkblue}{RGB}{0, 102, 204}
-\newcommand{\mysection}[1]{\noindent\textbf{\large #1}\par}
-\newcommand{\mysubsection}[1]{\noindent\textbf{#1}\par}
-\newcommand{\myitem}[1]{\item \textcolor{linkblue}{#1}}
-
-\geometry{a4paper, margin=0.5in}
+\usepackage{enumitem}
 
 \begin{document}
 
-\title{User's Resume}
-\author{}
-\date{}
+\title{Resume}
+\author{Your Name}
+\date{\today}
 \maketitle
 
-\mysection{Rohit Kumar}
-\textit{rohitcode005@gmail.com} | \href{github.com/Rohitw3code}{github.com/Rohitw3code}
-
-\mysection{Education}
-\mysubsection{Sarala Birla University, Ranchi, Jharkhand}
-\begin{itemize}
-    \myitem{B.Tech in AI (Artificial Intelligence), Graduation Year: 11/2021 - 04/2025}
+\section*{Experience}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Web Development Intern}
+    \begin{itemize}
+        \item Completed a remote internship where I developed websites using HTML, CSS, and JavaScript, gaining practical experience in front-end development.
+    \end{itemize}
+    
+    \item \textbf{Hackathon Winner}
+    \begin{itemize}
+        \item Led a team to victory in a regional hackathon by developing a web application using PHP and React, showcasing problem-solving and teamwork skills.
+    \end{itemize}
+    
+    \item \textbf{Community Service Volunteer}
+    \begin{itemize}
+        \item Collaborated with a local non-profit organization to build a website, demonstrating a commitment to giving back to the community.
+    \end{itemize}
 \end{itemize}
 
-\mysection{Skills}
-\mysubsection{Programming Languages}
-Python, C++, C, Java, JavaScript, C sharp
-\mysubsection{Libraries and Tools}
-Tensorflow, HuggingFace, Langchain, PyTorch, Sklearn, Pandas, Numpy, OpenCV, LLM, Flask, React, NLP, Nodejs, Android App, SQL, ETL, IOT, EPS32, Arduino, Git, Firebase, MongoDB, Linux, Neural Network, Cude, No SQL, Docker
-\mysubsection{ML Architectures}
-CNN, YOLO, Transformers (BERT, LSTM)
-
-\mysection{Work Experience}
-\mysubsection{Data Engineer}
-Taiyo.ai, San Francisco, California, USA \\
-Conducted web scraping from various websites \\
-06/2022 - 09/2022
-\begin{itemize}
-    \myitem{Python scripting in OOP (Object Oriented Programming)}
-    \myitem{Established robust data pipeline for seamless integration with Google Cloud}
-    \myitem{Data Preprocessing, data analysis using Pandas, NumPy, Matplotlib, Seaborn}
-\end{itemize}
-
-\mysubsection{Prompt Engineer}
-Scale AI, Remote \\
-09/2023 - 02/2024
-\begin{itemize}
-    \myitem{Review LLM model code generation}
-    \myitem{Data science and ML training expert}
-    \myitem{Improved prompt generative AI model for better performance}
-\end{itemize}
-
-\mysection{Extracurricular Activities}
-\mysubsection{Samsung Solve for Tomorrow}
-CSR FITT, Delhi \\
-06/2023
-\begin{itemize}
-    \myitem{Achieved remarkable ranking in Top 30 among 70,000+ participants}
-    \myitem{Developed innovative mobile application for instant solutions}
-\end{itemize}
-
-\mysubsection{Ranked Top 5 in Anveshana}
-Synopsys, Delhi \\
-02/2024
-\begin{itemize}
-    \myitem{Developed live IoT project for train accident prevention}
-    \myitem{Implemented obstacle detection and drowsiness detection}
+\section*{Work Experience}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Data Engineer}
+    \begin{itemize}
+        \item Taiyo.ai, San Francisco, California, USA (06/2022 - 09/2022)
+        \item Conducted web scraping to extract data from both the World Bank and IADB websites.
+        \item Python scripting in OOP and establishment of a robust data pipeline for integration with Google Cloud.
+        \item Data preprocessing, data analysis using Pandas, NumPy, Matplotlib, and Seaborn.
+    \end{itemize}
+    
+    \item \textbf{Prompt Engineer}
+    \begin{itemize}
+        \item Scale AI, Remote (09/2023 - 02/2024)
+        \item Reviewed LLM model code generation. Data science and ML training expert improved prompt generative AI model for better performance.
+    \end{itemize}
 \end{itemize}
 
 \end{document}

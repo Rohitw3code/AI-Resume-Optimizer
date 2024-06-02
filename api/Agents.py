@@ -2,16 +2,13 @@ from crewai import Agent,Task,Crew
 from crewai_tools import ScrapeWebsiteTool,PDFSearchTool,SerperDevTool,FileReadTool
 
 
-search_tool = SerperDevTool()
-scrape_tool = ScrapeWebsiteTool()
-resume_tool = FileReadTool(file_path='./template.docx')
+resume_tool = FileReadTool(file_path='./template.pdf')
 
 
 researcher_agent = Agent(
     role="Tech Job Researcher",
     goal="Make sure to do amazing analysis on "
         "job posting to help job applicants land a job for ",
-    tools = [scrape_tool, search_tool],
     verbose=True,
     backstory=(
         "As a Job Researcher, your prowess in "
