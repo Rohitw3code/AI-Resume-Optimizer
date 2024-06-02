@@ -78,7 +78,7 @@ export default function CreateResume() {
                         value={jobDesc}
                     />
                     <button className='bg-blue-500 r-5 m-5 p-2' onClick={createResume}>Create Resume</button>
-                    <textarea className='text-black p-5 m-5 r-3' value={result} placeholder='result' />
+                    <p className='p-5 m-5 r-3' value={result} placeholder='result' />
                 </div>
                 <div>
                 </div>
