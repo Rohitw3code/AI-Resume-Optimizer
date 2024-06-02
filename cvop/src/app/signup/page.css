@@ -7,6 +7,9 @@ body {
     background-attachment: fixed;
 }
 
+input{
+    color: black;
+}
 
 .login-container {
       padding: 20px;

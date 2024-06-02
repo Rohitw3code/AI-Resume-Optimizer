@@ -1,11 +1,11 @@
 "use client"
-import React, { useState } from 'react';
+import React, { useEffect,useRef, useState } from 'react';
 import "../../app/nav.css";
 import "./page.css"
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useRef } from 'react';
+
 
 export default function Profile() {
     // State for personal details
@@ -61,6 +61,7 @@ export default function Profile() {
     };
 
     const handleChange = (index, field, value, type) => {
+        
         if (type === 'work') {
             const updatedWorkItems = [...workItems];
             updatedWorkItems[index][field] = value;
@@ -188,10 +189,62 @@ export default function Profile() {
                 console.log('Success:', data);
             })
             .catch((error) => {
-                alert('error : '+error);
+                alert('error : ' + error);
                 console.error('Error:', error);
             });
     };
+
+
+    const getData = () => {
+        fetch('http://127.0.0.1:1000/get-details', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({'email':'hello@gmail.com'}),
+        })
+            .then(response => response.json())
+            .then(data => {
+                // alert('data : '+JSON.stringify(data));
+                // Personal Details                
+                setName(data['personalDetails']['name'])
+                setEmail(data['personalDetails']['email'])
+                setGithub(data['personalDetails']['github'])
+                setKaggle(data['personalDetails']['kaggle'])
+                setLeetcode(data['personalDetails']['leetcode'])
+                setLinkedin(data['personalDetails']['linkedin'])
+
+                //Acadmeic Details
+                setCollegeName(data['academicInfo']['collegeName'])
+                setStartYear(data['academicInfo']['startYear'])
+                setEndYear(data['academicInfo']['endYear'])
+                setCgpa(data['academicInfo']['cgpa'])
+                setDegree(data['academicInfo']['degree'])
+                //Skills
+                setProgrammingLanguages(data['skills']['programmingLanguages'])
+                setOtherSkills(data['skills']['otherSkills'])
+                //Work Experience
+                setWorkItems(data['workExperience']);
+
+                //Projects
+                setProjectItems(data['projects']);
+
+            })
+            .catch((error) => {
+                alert('error : ' + error);
+                console.error('Error:', error);
+            });
+    }
+
+
+    useEffect(()=>{
+        getData();
+    })
+
+
+
+
+
 
     return (
         <>
