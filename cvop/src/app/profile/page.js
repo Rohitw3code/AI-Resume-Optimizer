@@ -1,5 +1,5 @@
 "use client"
-import React, { useEffect,useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import "../../app/nav.css";
 import "./page.css"
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -41,14 +41,16 @@ export default function Profile() {
         projectName: '',
         projectDesc: '',
         techStack: '',
-        pdate: ''
+        pdate: '',
+        liveLink: '',
+        github: ''
     }]);
 
     // Function to add a new work item
     const addWorkItem = () => {
         setWorkItems([
             ...workItems,
-            { position: '', company: '', workDesc: '', jobType: '', wdate: '' }
+            { position: '', company: '', workDesc: '', jobType: '', wdate: '', }
         ]);
     };
 
@@ -56,12 +58,12 @@ export default function Profile() {
     const addProjectItem = () => {
         setProjectItems([
             ...projectItems,
-            { projectName: '', projectDesc: '', techStack: '', pdate: '' }
+            { projectName: '', projectDesc: '', techStack: '', pdate: '', liveLink: '', github: '' }
         ]);
     };
 
     const handleChange = (index, field, value, type) => {
-        
+
         if (type === 'work') {
             const updatedWorkItems = [...workItems];
             updatedWorkItems[index][field] = value;
@@ -201,7 +203,7 @@ export default function Profile() {
             headers: {
                 'Content-Type': 'application/json',
             },
-            body: JSON.stringify({'email':'hello@gmail.com'}),
+            body: JSON.stringify({ 'email': 'hello@gmail.com' }),
         })
             .then(response => response.json())
             .then(data => {
@@ -237,9 +239,9 @@ export default function Profile() {
     }
 
 
-    useEffect(()=>{
+    useEffect(() => {
         getData();
-    })
+    }, [0])
 
 
 
@@ -263,8 +265,12 @@ export default function Profile() {
 
                     <div className={`side-nav ${sideNavOpen ? 'active' : ''}`}>
                         <ul>
-                            <li>Profile</li>
-                            <li>Create Resume</li>
+                            <li>
+                                <a href="/profile" className='cursor-pointer'>Profile</a>
+                            </li>
+                            <li>
+                                <a href="/create-resume" className='cursor-pointer'>Create Resume</a>
+                            </li>
                             <li>AI Resume Builder</li>
                         </ul>
                     </div>
@@ -340,6 +346,8 @@ export default function Profile() {
                                             <input class="profile-input" placeholder="Description" value={item.projectDesc} onChange={(e) => handleChange(index, 'projectDesc', e.target.value, 'project')} />
                                             <input class="profile-input" placeholder="Tech Stack" value={item.techStack} onChange={(e) => handleChange(index, 'techStack', e.target.value, 'project')} />
                                             <input class="profile-input" type="date" value={item.pdate} onChange={(e) => handleChange(index, 'pdate', e.target.value, 'project')} />
+                                            <input class="profile-input" placeholder="Live Link" value={item.liveLink} onChange={(e) => handleChange(index, 'liveLink', e.target.value, 'project')} />
+                                            <input class="profile-input" placeholder="github" value={item.github} onChange={(e) => handleChange(index, 'github', e.target.value, 'project')} />
                                         </div>
                                     </div>
                                 ))}

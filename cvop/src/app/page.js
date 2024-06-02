@@ -40,12 +40,6 @@ export default function Home() {
           <div className="start-btn"><a href="/profile">Start</a></div>
         </div>
 
-
-
-
-
-
-
       </div>
     </>
   );
