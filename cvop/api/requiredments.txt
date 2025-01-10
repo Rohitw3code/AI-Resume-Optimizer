@@ -1,0 +1,4 @@
+crewai
+pymongo
+flask
+flask_cors
